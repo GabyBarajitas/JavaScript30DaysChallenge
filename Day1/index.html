@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum kit</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 844px;
+            width: 100%;
+            background-image: url("https://www.welovesolo.com/wp-content/uploads/2014/10/p16ecej59r16sl3rt1nkt1fdv18ks9-details.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .keys{
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            align-items: center;
+        }
+        .key{
+            display: flex;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            flex-direction: column;
+            align-items: center;
+            height: 65px;
+            width: 65px;
+            padding: 10px;
+            margin:10px;
+            background-color: rgb(86, 80, 80);
+            opacity: 85%;
+            border-color: rgb(5, 5, 100);
+            border-style: solid;
+        }
+    </style>
+
+</head>
+<body>
+<div class = "keys">
+    <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">Boom</span>
+    </div>
+    <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">Clap</span>
+    </div>
+    <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">Hithat</span>
+    </div>
+    <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">Kick</span>
+    </div>
+    <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">Openhat</span>
+    </div>
+    <div data-key="69" class="key">
+        <kbd>E</kbd>
+        <span class="sound">Ride</span>
+    </div>
+    <div data-key="84" class="key">
+        <kbd>T</kbd>
+        <span class="sound">Snare</span>
+    </div>
+    <div data-key="85" class="key">
+        <kbd>U</kbd>
+        <span class="sound">Tink</span>
+    </div>
+    <div data-key="67" class="key">
+        <kbd>C</kbd>
+        <span class="sound">Tom</span>
+    </div>
+    <div data-key="78" class="key">
+        <kbd>N</kbd>
+        <span class="sound">Chill</span>
+    </div>
+</div>
+
+<audio data-key="65" src="./sounds/boom.wav"></audio>
+<audio data-key="68" src="./sounds/clap.wav"></audio>
+<audio data-key="71" src="./sounds/hithat.wav"></audio>
+<audio data-key="74" src="./sounds/kick.wav"></audio>
+<audio data-key="76" src="./sounds/openhat.wav"></audio>
+<audio data-key="69" src="./sounds/ride.wav"></audio>
+<audio data-key="84" src="./sounds/snare.wav"></audio>
+<audio data-key="85" src="./sounds/tink.wav"></audio>
+<audio data-key="78" src="./sounds/tom.wav"></audio>
+<audio data-key="67" src="./sounds/chill.wav"></audio>
+
+
+<script>
+    window.addEventListener("keydown",function(e){
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        //console.log(audio);
+        if (!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+
+    });
+
+</script>
+</body>
+</html>
